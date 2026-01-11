@@ -1,4 +1,5 @@
 import MacOSCodeBlock from "@/components/MacOSCodeBlock"
+import NavBar from "@/components/NavigationMenu"
 
 export default function HomePage() {
 
@@ -18,6 +19,8 @@ print(f"Séquence générée : {results}")`;
   return (
     <div className="min-h-screen bg-white text-black flex flex-col justify-center items-center p-4">
       <main className="max-w-2xl text-center space-y-6">
+
+        <NavBar />
 
         <p className="text-5xl md:text-7xl font-black tracking-tighter">
           Bienvenue sur CodeStar.
