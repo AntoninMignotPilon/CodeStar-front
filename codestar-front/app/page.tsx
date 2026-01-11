@@ -10,7 +10,7 @@ export default function Home() {
 
         <MacOSCodeBlock 
           className=""
-          code = "const code_star = goat"
+          code = {`const code_star = "goat"; \nconst test_plusieurs_lignes = true;`}
           filename="script.js"
           language="javascript"
           allowCopy={true}
