@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeLearn – Design Concepts v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #111; }
+
+/* ─── TAB NAV ─── */
+.tab-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 99999;
+  display: flex; gap: 4px; padding: 8px 14px;
+  background: rgba(8,8,8,0.97); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.tab-btn {
+  padding: 7px 16px; border-radius: 7px; border: none; cursor: pointer;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.02em; transition: all .2s;
+  font-family: 'DM Sans', sans-serif; white-space: nowrap;
+}
+.tab-btn.t1 { background: #ff6b35; color: #fff; }
+.tab-btn.t2 { background: #0071e3; color: #fff; }
+.tab-btn.t3 { background: #e8d5b0; color: #1a1209; }
+.tab-btn.t4 { background: #10b981; color: #fff; }
+.tab-btn:not(.active) { opacity: 0.38; transform: scale(0.97); }
+.tab-btn.active { opacity: 1; transform: scale(1.02); }
+.design { display: none; }
+.design.active { display: block; }
+
+/* ════════════════════════════════════════════════════════
+   DESIGN 1 – EXACT CODESTAR CLONE (from image)
+════════════════════════════════════════════════════════ */
+#d1 {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #041325 0%, #071e3d 35%, #0a2545 60%, #051828 100%);
+  font-family: 'Space Mono', monospace;
+  color: #e0f0ff;
+  padding-top: 56px;
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle blue glow blobs */
+.d1-blob1 {
+  position: absolute; width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(30,100,200,0.18) 0%, transparent 65%);
+  top: -200px; right: -100px; pointer-events: none;
+}
+.d1-blob2 {
+  position: absolute; width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,107,53,0.07) 0%, transparent 65%);
+  bottom: 100px; left: -100px; pointer-events: none;
+}
+/* Pixel dot grid */
+.d1-dotgrid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(100,160,255,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* NAV */
+.d1-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 68px;
+  background: rgba(4,16,36,0.8); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,107,53,0.18);
+  position: sticky; top: 56px; z-index: 200;
+}
+.d1-logo-wrap { display: flex; align-items: center; gap: 10px; }
+.d1-logo-hex {
+  width: 38px; height: 38px; background: #ff6b35; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Press Start 2P', monospace; font-size: 12px; color: #fff;
+}
+.d1-logo-text {
+  font-family: 'Press Start 2P', monospace; font-size: 10px; color: #fff; letter-spacing: 0.05em;
+  text-transform: uppercase; line-height: 1.4;
+}
+.d1-nav-links { display: flex; gap: 36px; }
+.d1-nav-links a {
+  text-decoration: none; color: rgba(224,240,255,0.7); font-size: 13px;
+  letter-spacing: 0.03em; transition: color .2s;
+}
+.d1-nav-links a:hover { color: #fff; }
+.d1-cta-btn {
+  background: #ff6b35; color: #fff; border: none; cursor: pointer;
+  font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 24px;
+  border-radius: 4px; transition: background .2s;
+}
+.d1-cta-btn:hover { background: #ff8555; }
+
+/* HERO */
+.d1-hero {
+  display: flex; align-items: center; gap: 60px;
+  padding: 80px 48px 60px; max-width: 1280px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.d1-hero-left { flex: 1.1; }
+.d1-eyebrow {
+  font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(224,240,255,0.4);
+  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px;
+  display: flex; align-items: center; gap: 10px;
+}
+.d1-eyebrow::before { content: ''; width: 20px; height: 1px; background: rgba(224,240,255,0.3); }
+.d1-h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 36px; line-height: 1.5; margin-bottom: 28px;
+  text-transform: uppercase; letter-spacing: 0.02em;
+}
+.d1-h1 .w { color: #ffffff; }
+.d1-h1 .o { color: #ff6b35; }
+.d1-desc {
+  color: rgba(224,240,255,0.55); font-size: 13px; line-height: 1.85;
+  max-width: 400px; margin-bottom: 40px;
+}
+.d1-btns { display: flex; gap: 14px; }
+.d1-btn-main {
+  background: #ff6b35; color: #fff; border: none; cursor: pointer;
+  font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 15px 28px;
+  border-radius: 4px;
+}
+.d1-btn-sec {
+  background: transparent; color: rgba(224,240,255,0.7);
+  border: 1px solid rgba(224,240,255,0.2); cursor: pointer;
+  font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 15px 28px;
+  border-radius: 4px;
+}
+
+/* CODE WINDOW — pixel-perfect replica */
+.d1-hero-right { flex: 1; }
+.d1-code-win {
+  background: #0f1e38;
+  border: 1px solid rgba(255,107,53,0.2);
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(100,160,255,0.06);
+}
+.d1-win-bar {
+  background: #162840; padding: 12px 18px;
+  display: flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid rgba(255,107,53,0.12);
+}
+.d1-win-dots { display: flex; gap: 6px; }
+.d1-win-dot { width: 12px; height: 12px; border-radius: 50%; }
+.d1-win-label { margin-left: 10px; font-size: 12px; color: rgba(224,240,255,0.35); }
+.d1-code { padding: 26px 28px; font-size: 13.5px; line-height: 1.75; tab-size: 2; }
+.kw { color: #60c8ff; font-weight: 700; }
+.cls { color: #ffd580; }
+.fn { color: #82aaff; }
+.prop { color: #c792ea; }
+.str { color: #c3e88d; }
+.num { color: #f78c6c; }
+.cmt { color: rgba(224,240,255,0.28); font-style: italic; }
+.punc { color: rgba(224,240,255,0.55); }
+.d1-output {
+  margin: 10px 0 4px; padding: 10px 16px;
+  background: rgba(130,255,160,0.06); border-left: 2px solid #4ec94e;
+  font-size: 12px; color: #7bed9f; border-radius: 0 6px 6px 0;
+}
+
+/* STATS */
+.d1-stats-bar {
+  display: flex; gap: 0; max-width: 1280px; margin: 0 auto 60px; padding: 0 48px;
+  position: relative; z-index: 1;
+}
+.d1-stat {
+  flex: 1; padding: 28px 32px;
+  background: rgba(255,255,255,0.025); border: 1px solid rgba(255,107,53,0.1);
+  border-right: none;
+}
+.d1-stat:last-child { border-right: 1px solid rgba(255,107,53,0.1); }
+.d1-stat-n {
+  font-family: 'Press Start 2P', monospace; font-size: 26px; color: #ff6b35;
+  margin-bottom: 8px;
+}
+.d1-stat-l { font-size: 11px; color: rgba(224,240,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* LEVEL CARDS */
+.d1-levels { max-width: 1280px; margin: 0 auto 60px; padding: 0 48px; position: relative; z-index: 1; }
+.d1-level-head {
+  font-family: 'Press Start 2P', monospace; font-size: 11px; color: rgba(255,107,53,0.7);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.d1-level-head::after { content: ''; flex: 1; height: 1px; background: rgba(255,107,53,0.15); }
+.d1-level-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.d1-lcard {
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(100,160,255,0.1);
+  padding: 24px; border-radius: 8px; transition: border-color .2s, background .2s; cursor: pointer;
+}
+.d1-lcard:hover { border-color: rgba(255,107,53,0.4); background: rgba(255,107,53,0.04); }
+.d1-lcard.active { border-color: #ff6b35; background: rgba(255,107,53,0.07); }
+.d1-lnum {
+  font-family: 'Press Start 2P', monospace; font-size: 28px;
+  color: rgba(255,107,53,0.2); margin-bottom: 14px; line-height: 1;
+}
+.d1-lcard.active .d1-lnum { color: rgba(255,107,53,0.5); }
+.d1-lname { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; color: #e0f0ff; }
+.d1-ldesc { font-size: 11px; color: rgba(224,240,255,0.38); line-height: 1.65; }
+
+/* COURSES SECTION */
+.d1-courses { max-width: 1280px; margin: 0 auto 80px; padding: 0 48px; position: relative; z-index: 1; }
+.d1-courses-head {
+  font-family: 'Press Start 2P', monospace; font-size: 11px; color: rgba(255,107,53,0.7);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.d1-courses-head::after { content: ''; flex: 1; height: 1px; background: rgba(255,107,53,0.15); }
+.d1-courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.d1-ccard {
+  background: rgba(255,255,255,0.025); border: 1px solid rgba(100,160,255,0.12);
+  padding: 28px; border-radius: 8px; transition: all .2s; cursor: pointer;
+}
+.d1-ccard:hover { border-color: rgba(255,107,53,0.35); transform: translateY(-3px); }
+.d1-ccard-icon { font-size: 28px; margin-bottom: 14px; }
+.d1-ccard-title { font-size: 14px; font-weight: 700; color: #e0f0ff; margin-bottom: 8px; }
+.d1-ccard-desc { font-size: 12px; color: rgba(224,240,255,0.42); line-height: 1.65; margin-bottom: 16px; }
+.d1-ccard-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  background: rgba(255,107,53,0.12); color: #ff6b35;
+  border: 1px solid rgba(255,107,53,0.25); padding: 3px 10px; border-radius: 3px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.d1-ccard-bar { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; margin-top: 16px; }
+.d1-ccard-fill { height: 100%; background: #ff6b35; border-radius: 2px; }
+
+/* MENTOR ROW */
+.d1-mentors { max-width: 1280px; margin: 0 auto 80px; padding: 0 48px; position: relative; z-index: 1; }
+.d1-mentors-head {
+  font-family: 'Press Start 2P', monospace; font-size: 11px; color: rgba(255,107,53,0.7);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.d1-mentors-head::after { content: ''; flex: 1; height: 1px; background: rgba(255,107,53,0.15); }
+.d1-mentors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.d1-mentor {
+  background: rgba(255,255,255,0.025); border: 1px solid rgba(100,160,255,0.1);
+  padding: 24px; border-radius: 8px; text-align: center;
+}
+.d1-mentor-avatar {
+  width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px;
+  display: flex; align-items: center; justify-content: center; font-size: 26px;
+  border: 2px solid rgba(255,107,53,0.3);
+}
+.d1-mentor-name { font-size: 13px; font-weight: 700; color: #e0f0ff; margin-bottom: 4px; }
+.d1-mentor-role { font-size: 11px; color: rgba(224,240,255,0.38); margin-bottom: 12px; }
+.d1-mentor-stars { color: #ff6b35; font-size: 12px; }
+
+/* ════════════════════════════════════════════════════════
+   DESIGN 2 – macOS STYLE (EXPANDED)
+════════════════════════════════════════════════════════ */
+#d2 {
+  min-height: 100vh;
+  background: #f0f0f5;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  padding-top: 56px;
+}
+/* macOS menu bar */
+.d2-menubar {
+  height: 26px; background: rgba(60,60,60,0.92); backdrop-filter: blur(20px);
+  display: flex; align-items: center; padding: 0 16px; gap: 20px;
+  position: sticky; top: 56px; z-index: 200;
+}
+.d2-menubar-logo { font-size: 14px; color: #fff; font-weight: 500; }
+.d2-menubar-items { display: flex; gap: 16px; }
+.d2-menubar-items span { font-size: 13px; color: rgba(255,255,255,0.85); cursor: pointer; }
+.d2-menubar-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+.d2-menubar-right span { font-size: 12px; color: rgba(255,255,255,0.7); }
+
+/* Frosted navbar */
+.d2-nav {
+  height: 52px; background: rgba(255,255,255,0.72); backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+}
+.d2-logo { font-size: 15px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.02em; }
+.d2-nav-links { display: flex; gap: 28px; }
+.d2-nav-links a { text-decoration: none; color: rgba(29,29,31,0.65); font-size: 13px; }
+.d2-nav-right { display: flex; gap: 12px; align-items: center; }
+.d2-nav-search {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(0,0,0,0.06); border-radius: 8px; padding: 5px 12px;
+  font-size: 13px; color: rgba(0,0,0,0.35);
+}
+.d2-nav-cta {
+  background: #0071e3; color: #fff; border: none; padding: 8px 18px;
+  border-radius: 980px; font-size: 13px; font-weight: 500; cursor: pointer;
+}
+
+/* HERO */
+.d2-hero {
+  padding: 64px 32px 48px; max-width: 1100px; margin: 0 auto; text-align: center;
+}
+.d2-hero-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(0,0,0,0.05); border-radius: 100px;
+  padding: 5px 14px; font-size: 12px; font-weight: 500; color: #1d1d1f; margin-bottom: 28px;
+}
+.d2-hero-chip .live { width: 7px; height: 7px; border-radius: 50%; background: #34c759; display: inline-block; }
+.d2-h1 {
+  font-size: 64px; font-weight: 700; line-height: 1.04;
+  letter-spacing: -0.045em; color: #1d1d1f; margin-bottom: 20px;
+}
+.d2-h1 span { background: linear-gradient(135deg, #0071e3 0%, #34c759 50%, #ff9f0a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.d2-hero-p {
+  font-size: 19px; color: rgba(29,29,31,0.55); line-height: 1.6;
+  max-width: 520px; margin: 0 auto 36px;
+}
+.d2-hero-btns { display: flex; justify-content: center; gap: 12px; margin-bottom: 56px; }
+.d2-btn-p { background: #0071e3; color: #fff; border: none; padding: 14px 30px; border-radius: 980px; font-size: 15px; font-weight: 500; cursor: pointer; }
+.d2-btn-s { background: rgba(0,0,0,0.06); color: #1d1d1f; border: none; padding: 14px 30px; border-radius: 980px; font-size: 15px; font-weight: 500; cursor: pointer; }
+
+/* Main App window */
+.d2-window {
+  background: #fff; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.04), 0 24px 80px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.06);
+  max-width: 960px; margin: 0 auto 56px; text-align: left;
+}
+.d2-win-bar {
+  background: #ececec; padding: 12px 20px; display: flex; align-items: center;
+  gap: 8px; border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.d2-win-dot { width: 13px; height: 13px; border-radius: 50%; }
+.d2-win-dot.r { background: #ff5f57; }
+.d2-win-dot.y { background: #ffbd2e; }
+.d2-win-dot.g { background: #28c840; }
+.d2-win-title { flex: 1; text-align: center; font-size: 12px; color: rgba(0,0,0,0.4); font-weight: 500; }
+.d2-win-tabs { display: flex; gap: 1px; background: #e0e0e0; }
+.d2-win-tab {
+  padding: 10px 20px; font-size: 13px; color: rgba(0,0,0,0.5);
+  cursor: pointer; background: #f5f5f7; border-bottom: 2px solid transparent;
+}
+.d2-win-tab.active { background: #fff; color: #0071e3; border-bottom-color: #0071e3; font-weight: 500; }
+
+/* App layout */
+.d2-app { display: flex; height: 540px; }
+.d2-sidebar {
+  width: 220px; background: #f5f5f7; border-right: 1px solid rgba(0,0,0,0.07);
+  display: flex; flex-direction: column;
+}
+.d2-sidebar-top { padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.d2-user-row { display: flex; align-items: center; gap: 10px; }
+.d2-user-avatar {
+  width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #0071e3, #34c759);
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 600;
+}
+.d2-user-info { flex: 1; }
+.d2-user-name { font-size: 13px; font-weight: 600; color: #1d1d1f; }
+.d2-user-level { font-size: 11px; color: rgba(29,29,31,0.45); }
+.d2-sidebar-nav { padding: 12px 8px; flex: 1; }
+.d2-nav-section { font-size: 10px; font-weight: 600; color: rgba(0,0,0,0.3); letter-spacing: 0.07em; text-transform: uppercase; padding: 8px 8px 4px; }
+.d2-nav-item {
+  display: flex; align-items: center; gap: 9px; padding: 7px 10px;
+  border-radius: 8px; font-size: 13px; color: #1d1d1f; cursor: pointer; margin-bottom: 1px;
+}
+.d2-nav-item.active { background: rgba(0,113,227,0.1); color: #0071e3; font-weight: 500; }
+.d2-nav-item .ico { font-size: 15px; width: 20px; text-align: center; }
+.d2-nav-item .badge { margin-left: auto; background: #0071e3; color: #fff; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 100px; }
+
+/* Main content */
+.d2-main { flex: 1; overflow-y: auto; padding: 24px; }
+.d2-main::-webkit-scrollbar { width: 6px; }
+.d2-main::-webkit-scrollbar-track { background: transparent; }
+.d2-main::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 3px; }
+
+.d2-greeting { font-size: 22px; font-weight: 600; color: #1d1d1f; margin-bottom: 4px; letter-spacing: -0.02em; }
+.d2-greeting-sub { font-size: 13px; color: rgba(29,29,31,0.45); margin-bottom: 20px; }
+
+/* Streak bar */
+.d2-streak {
+  background: linear-gradient(135deg, #fff4e5, #ffe5c2); border-radius: 12px;
+  padding: 14px 20px; display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+  border: 1px solid rgba(255,159,10,0.2);
+}
+.d2-streak-icon { font-size: 28px; }
+.d2-streak-text { flex: 1; }
+.d2-streak-title { font-size: 14px; font-weight: 600; color: #1d1d1f; }
+.d2-streak-sub { font-size: 12px; color: rgba(29,29,31,0.5); }
+.d2-streak-num { font-size: 26px; font-weight: 700; color: #ff9f0a; letter-spacing: -0.03em; }
+
+/* Continue section */
+.d2-section-title { font-size: 15px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; letter-spacing: -0.01em; }
+.d2-course-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.d2-ccard { border-radius: 14px; padding: 18px; cursor: pointer; transition: transform .15s; }
+.d2-ccard:hover { transform: scale(0.985); }
+.d2-ccard.blue { background: linear-gradient(135deg, #e8f0ff, #d0e4ff); }
+.d2-ccard.green { background: linear-gradient(135deg, #e5f9ed, #c8f2d8); }
+.d2-ccard.orange { background: linear-gradient(135deg, #fff4e5, #ffe5c2); }
+.d2-ccard.purple { background: linear-gradient(135deg, #f3e8ff, #e5d0ff); }
+.d2-ccard-icon { font-size: 26px; margin-bottom: 8px; }
+.d2-ccard-name { font-size: 13px; font-weight: 600; color: #1d1d1f; margin-bottom: 3px; }
+.d2-ccard-meta { font-size: 11px; color: rgba(29,29,31,0.5); margin-bottom: 10px; }
+.d2-pbar { height: 4px; border-radius: 2px; background: rgba(0,0,0,0.08); }
+.d2-pfill { height: 100%; border-radius: 2px; }
+
+/* Right panel */
+.d2-panel { width: 220px; background: #f5f5f7; border-left: 1px solid rgba(0,0,0,0.07); padding: 20px 16px; }
+.d2-panel-title { font-size: 13px; font-weight: 600; color: #1d1d1f; margin-bottom: 14px; }
+.d2-achievement {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  padding: 10px; background: #fff; border-radius: 10px; border: 1px solid rgba(0,0,0,0.06);
+}
+.d2-ach-icon { font-size: 22px; }
+.d2-ach-info { flex: 1; }
+.d2-ach-name { font-size: 12px; font-weight: 600; color: #1d1d1f; }
+.d2-ach-desc { font-size: 10px; color: rgba(29,29,31,0.45); }
+
+.d2-stats-mini { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+.d2-stat-row { display: flex; justify-content: space-between; align-items: center; }
+.d2-stat-key { font-size: 12px; color: rgba(29,29,31,0.5); }
+.d2-stat-val { font-size: 13px; font-weight: 600; color: #1d1d1f; }
+
+/* REVIEWS */
+.d2-reviews { max-width: 1100px; margin: 0 auto 60px; padding: 0 32px; }
+.d2-reviews-title { font-size: 28px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.03em; margin-bottom: 8px; }
+.d2-reviews-sub { font-size: 15px; color: rgba(29,29,31,0.5); margin-bottom: 28px; }
+.d2-reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.d2-review {
+  background: #fff; border-radius: 16px; padding: 24px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.03), 0 4px 20px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+}
+.d2-review-stars { color: #ff9f0a; font-size: 13px; margin-bottom: 12px; }
+.d2-review-text { font-size: 14px; color: rgba(29,29,31,0.7); line-height: 1.6; margin-bottom: 16px; }
+.d2-reviewer { display: flex; align-items: center; gap: 10px; }
+.d2-reviewer-avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.d2-reviewer-name { font-size: 13px; font-weight: 600; color: #1d1d1f; }
+.d2-reviewer-meta { font-size: 11px; color: rgba(29,29,31,0.4); }
+
+/* PRICING */
+.d2-pricing { max-width: 1100px; margin: 0 auto 80px; padding: 0 32px; }
+.d2-pricing-title { font-size: 28px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.03em; margin-bottom: 8px; }
+.d2-pricing-sub { font-size: 15px; color: rgba(29,29,31,0.5); margin-bottom: 28px; }
+.d2-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.d2-plan {
+  background: #fff; border-radius: 20px; padding: 32px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.03), 0 4px 20px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+}
+.d2-plan.featured {
+  background: #0071e3; color: #fff;
+  box-shadow: 0 8px 40px rgba(0,113,227,0.35), 0 0 0 1px rgba(0,113,227,0.5);
+}
+.d2-plan-name { font-size: 14px; font-weight: 600; color: rgba(29,29,31,0.5); margin-bottom: 8px; }
+.d2-plan.featured .d2-plan-name { color: rgba(255,255,255,0.7); }
+.d2-plan-price { font-size: 40px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.04em; margin-bottom: 4px; }
+.d2-plan.featured .d2-plan-price { color: #fff; }
+.d2-plan-per { font-size: 13px; color: rgba(29,29,31,0.45); margin-bottom: 24px; }
+.d2-plan.featured .d2-plan-per { color: rgba(255,255,255,0.6); }
+.d2-plan-btn {
+  display: block; width: 100%; padding: 12px; border-radius: 980px; border: none; cursor: pointer;
+  font-size: 14px; font-weight: 500; background: rgba(0,0,0,0.06); color: #1d1d1f; margin-bottom: 24px;
+}
+.d2-plan.featured .d2-plan-btn { background: rgba(255,255,255,0.2); color: #fff; }
+.d2-plan-feat { font-size: 13px; color: rgba(29,29,31,0.65); margin-bottom: 8px; display: flex; gap: 8px; }
+.d2-plan.featured .d2-plan-feat { color: rgba(255,255,255,0.8); }
+.d2-plan-feat::before { content: '✓'; color: #34c759; font-weight: 700; }
+.d2-plan.featured .d2-plan-feat::before { color: #7affab; }
+
+/* STATS ROW */
+.d2-stats-row { max-width: 1100px; margin: 0 auto 60px; padding: 0 32px; display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.d2-stat-card {
+  background: #fff; border-radius: 16px; padding: 24px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.03), 0 4px 16px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+}
+.d2-stat-ico { font-size: 24px; margin-bottom: 10px; }
+.d2-stat-n { font-size: 30px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.04em; }
+.d2-stat-l { font-size: 13px; color: rgba(29,29,31,0.45); margin-top: 2px; }
+
+/* ════════════════════════════════════════════════════════
+   DESIGN 3 – COSMIC / GALACTIC (CodeStar universe)
+════════════════════════════════════════════════════════ */
+#d3 {
+  min-height: 100vh;
+  background: #02040f;
+  font-family: 'Syne', 'DM Sans', sans-serif;
+  color: #e8f0ff;
+  padding-top: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated star canvas background */
+.d3-stars {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(120,60,255,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(255,200,60,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 70%, rgba(60,160,255,0.12) 0%, transparent 50%),
+    #02040f;
+}
+.d3-stars-layer {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(circle 1px at 15% 22%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 30% 8%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(circle 1px at 55% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(circle 2px at 72% 5%, rgba(255,220,100,0.9) 0%, transparent 100%),
+    radial-gradient(circle 1px at 88% 28%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(circle 1px at 8% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 45% 42%, rgba(200,180,255,0.8) 0%, transparent 100%),
+    radial-gradient(circle 1px at 65% 50%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(circle 2px at 92% 48%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(circle 1px at 25% 70%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(circle 1px at 50% 82%, rgba(255,220,100,0.7) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 78% 75%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(circle 1px at 10% 90%, rgba(200,180,255,0.6) 0%, transparent 100%),
+    radial-gradient(circle 1px at 35% 95%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(circle 2px at 60% 92%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(circle 1px at 85% 88%, rgba(255,220,100,0.7) 0%, transparent 100%);
+}
+@keyframes twinkle { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.d3-stars-layer { animation: twinkle 4s ease-in-out infinite alternate; }
+
+/* NAV */
+.d3-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px; height: 68px;
+  background: rgba(2,4,15,0.7); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: sticky; top: 56px; z-index: 200;
+}
+.d3-logo-wrap { display: flex; align-items: center; gap: 12px; }
+.d3-logo-star {
+  width: 36px; height: 36px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.d3-logo-star::before {
+  content: '★'; font-size: 30px; color: #ffd166;
+  filter: drop-shadow(0 0 8px rgba(255,209,102,0.8));
+  animation: starPulse 2.5s ease-in-out infinite;
+}
+@keyframes starPulse { 0%,100%{filter:drop-shadow(0 0 8px rgba(255,209,102,0.8))} 50%{filter:drop-shadow(0 0 18px rgba(255,209,102,1))} }
+.d3-logo-text {
+  font-size: 18px; font-weight: 800; color: #fff;
+  letter-spacing: -0.01em;
+}
+.d3-logo-text span { color: #ffd166; }
+.d3-nav-links { display: flex; gap: 36px; }
+.d3-nav-links a { text-decoration: none; color: rgba(232,240,255,0.55); font-size: 14px; font-weight: 500; transition: color .2s; }
+.d3-nav-links a:hover { color: #fff; }
+.d3-cta {
+  background: linear-gradient(135deg, #7b35ff, #4f8fff);
+  color: #fff; border: none; padding: 10px 24px; border-radius: 100px;
+  font-size: 13px; font-weight: 700; cursor: pointer; letter-spacing: 0.03em;
+  box-shadow: 0 0 20px rgba(123,53,255,0.4);
+  transition: box-shadow .2s;
+}
+.d3-cta:hover { box-shadow: 0 0 30px rgba(123,53,255,0.7); }
+
+/* HERO */
+.d3-hero {
+  padding: 90px 52px 70px; max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; gap: 70px;
+  position: relative; z-index: 1;
+}
+.d3-hero-left { flex: 1.1; }
+.d3-planet-badge {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px;
+  background: rgba(255,209,102,0.08); border: 1px solid rgba(255,209,102,0.25);
+  padding: 6px 16px; border-radius: 100px;
+  font-size: 12px; font-weight: 600; color: #ffd166; letter-spacing: 0.08em;
+}
+.d3-planet-badge::before { content: '✦'; animation: twinkle 1.5s infinite; }
+.d3-h1 {
+  font-size: 62px; font-weight: 800; line-height: 1.0;
+  letter-spacing: -0.03em; margin-bottom: 24px;
+}
+.d3-h1 .glow-gold {
+  color: #ffd166;
+  text-shadow: 0 0 40px rgba(255,209,102,0.5), 0 0 80px rgba(255,209,102,0.2);
+}
+.d3-h1 .glow-purple {
+  color: #b794ff;
+  text-shadow: 0 0 40px rgba(183,148,255,0.4);
+}
+.d3-desc { color: rgba(232,240,255,0.55); font-size: 16px; line-height: 1.8; max-width: 400px; margin-bottom: 42px; }
+.d3-btns { display: flex; gap: 14px; align-items: center; }
+.d3-btn-main {
+  background: linear-gradient(135deg, #ffd166, #ffaa00);
+  color: #0a0600; border: none; padding: 15px 32px; border-radius: 100px;
+  font-size: 14px; font-weight: 800; cursor: pointer; letter-spacing: 0.02em;
+  box-shadow: 0 0 30px rgba(255,209,102,0.35);
+}
+.d3-btn-sec {
+  background: rgba(255,255,255,0.05); color: rgba(232,240,255,0.8);
+  border: 1px solid rgba(255,255,255,0.15); padding: 15px 32px; border-radius: 100px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+}
+
+/* Hero right — orbit visual */
+.d3-hero-right { flex: 1; display: flex; flex-direction: column; gap: 16px; position: relative; }
+.d3-orbit-card {
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 20px; padding: 22px 26px;
+  display: flex; align-items: center; gap: 18px;
+  backdrop-filter: blur(10px);
+  transition: border-color .3s, background .3s; cursor: pointer;
+}
+.d3-orbit-card:hover { border-color: rgba(255,209,102,0.3); background: rgba(255,209,102,0.05); }
+.d3-orbit-card.featured {
+  border-color: rgba(123,53,255,0.4); background: rgba(123,53,255,0.08);
+}
+.d3-orb-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.d3-orb-icon.gold { background: radial-gradient(circle, rgba(255,209,102,0.25), rgba(255,140,0,0.1)); border: 1px solid rgba(255,209,102,0.3); }
+.d3-orb-icon.purple { background: radial-gradient(circle, rgba(183,148,255,0.2), rgba(100,60,200,0.1)); border: 1px solid rgba(183,148,255,0.25); }
+.d3-orb-icon.blue { background: radial-gradient(circle, rgba(100,180,255,0.2), rgba(50,100,200,0.1)); border: 1px solid rgba(100,180,255,0.25); }
+.d3-orb-info { flex: 1; }
+.d3-orb-title { font-size: 14px; font-weight: 700; color: #e8f0ff; margin-bottom: 3px; }
+.d3-orb-meta { font-size: 12px; color: rgba(232,240,255,0.38); }
+.d3-orb-pill {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  padding: 4px 10px; border-radius: 100px;
+}
+.d3-orb-pill.new { background: rgba(255,209,102,0.15); color: #ffd166; border: 1px solid rgba(255,209,102,0.25); }
+.d3-orb-pill.hot { background: rgba(255,80,80,0.12); color: #ff8080; border: 1px solid rgba(255,80,80,0.2); }
+
+/* CONSTELLATION STATS */
+.d3-stats { max-width: 1280px; margin: 0 auto 60px; padding: 0 52px; position: relative; z-index: 1; }
+.d3-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.d3-stat-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px; padding: 28px; text-align: center;
+  backdrop-filter: blur(8px);
+  position: relative; overflow: hidden;
+}
+.d3-stat-card::before {
+  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 60%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,209,102,0.5), transparent);
+}
+.d3-stat-icon { font-size: 28px; margin-bottom: 12px; }
+.d3-stat-n {
+  font-size: 36px; font-weight: 800; letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #ffd166, #fff);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+}
+.d3-stat-l { font-size: 12px; color: rgba(232,240,255,0.38); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* COURSE GALAXY */
+.d3-courses { max-width: 1280px; margin: 0 auto 60px; padding: 0 52px; position: relative; z-index: 1; }
+.d3-section-label {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+  font-size: 11px; font-weight: 700; color: rgba(255,209,102,0.7);
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.d3-section-label::before { content: '★'; color: #ffd166; filter: drop-shadow(0 0 6px #ffd166); }
+.d3-section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,209,102,0.2), transparent); }
+.d3-courses-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.d3-ccard {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px; padding: 28px; cursor: pointer;
+  transition: all .25s; position: relative; overflow: hidden;
+}
+.d3-ccard::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 80px; height: 80px; border-radius: 50%;
+  opacity: 0; transition: opacity .3s;
+}
+.d3-ccard:hover { transform: translateY(-4px); border-color: rgba(255,209,102,0.25); }
+.d3-ccard:hover::after { opacity: 1; }
+.d3-ccard.gold-hover::after { background: radial-gradient(circle, rgba(255,209,102,0.15), transparent); }
+.d3-ccard.purple-hover::after { background: radial-gradient(circle, rgba(183,148,255,0.15), transparent); }
+.d3-ccard.blue-hover::after { background: radial-gradient(circle, rgba(100,180,255,0.15), transparent); }
+.d3-ccard-orb {
+  width: 50px; height: 50px; border-radius: 50%; margin-bottom: 18px;
+  display: flex; align-items: center; justify-content: center; font-size: 24px;
+}
+.d3-ccard-orb.g { background: radial-gradient(circle at 35% 35%, #ffd166, #a05500); box-shadow: 0 0 20px rgba(255,209,102,0.3); }
+.d3-ccard-orb.p { background: radial-gradient(circle at 35% 35%, #b794ff, #4a1d8f); box-shadow: 0 0 20px rgba(183,148,255,0.3); }
+.d3-ccard-orb.b { background: radial-gradient(circle at 35% 35%, #64b4ff, #1a3f8f); box-shadow: 0 0 20px rgba(100,180,255,0.3); }
+.d3-ccard-orb.r { background: radial-gradient(circle at 35% 35%, #ff8080, #8f1a1a); box-shadow: 0 0 20px rgba(255,128,128,0.3); }
+.d3-ccard-orb.teal { background: radial-gradient(circle at 35% 35%, #64ffe0, #0a6650); box-shadow: 0 0 20px rgba(100,255,224,0.3); }
+.d3-ccard-orb.pink { background: radial-gradient(circle at 35% 35%, #ff9fe0, #8f1a60); box-shadow: 0 0 20px rgba(255,159,224,0.3); }
+.d3-ccard-title { font-size: 16px; font-weight: 700; color: #e8f0ff; margin-bottom: 8px; }
+.d3-ccard-desc { font-size: 13px; color: rgba(232,240,255,0.42); line-height: 1.65; margin-bottom: 18px; }
+.d3-ccard-footer { display: flex; align-items: center; justify-content: space-between; }
+.d3-ccard-level {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px; background: rgba(255,255,255,0.06); color: rgba(232,240,255,0.5);
+}
+.d3-ccard-duration { font-size: 12px; color: rgba(232,240,255,0.3); }
+
+/* TESTIMONIALS — cosmic cards */
+.d3-testimonials { max-width: 1280px; margin: 0 auto 60px; padding: 0 52px; position: relative; z-index: 1; }
+.d3-test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.d3-test-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px; padding: 28px;
+}
+.d3-test-stars { color: #ffd166; font-size: 13px; margin-bottom: 14px; filter: drop-shadow(0 0 4px rgba(255,209,102,0.5)); }
+.d3-test-quote { font-size: 14px; color: rgba(232,240,255,0.65); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+.d3-test-author-row { display: flex; align-items: center; gap: 10px; }
+.d3-test-av { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.d3-test-name { font-size: 13px; font-weight: 700; color: #e8f0ff; }
+.d3-test-role { font-size: 11px; color: rgba(232,240,255,0.35); }
+
+/* PRICING */
+.d3-pricing { max-width: 1280px; margin: 0 auto 80px; padding: 0 52px; position: relative; z-index: 1; }
+.d3-pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.d3-plan {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px; padding: 36px;
+}
+.d3-plan.featured {
+  background: linear-gradient(160deg, rgba(123,53,255,0.2), rgba(80,160,255,0.1));
+  border-color: rgba(183,148,255,0.4);
+  box-shadow: 0 0 60px rgba(123,53,255,0.15);
+}
+.d3-plan-name { font-size: 12px; font-weight: 700; color: rgba(232,240,255,0.4); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+.d3-plan.featured .d3-plan-name { color: #b794ff; }
+.d3-plan-price { font-size: 48px; font-weight: 800; color: #e8f0ff; letter-spacing: -0.05em; margin-bottom: 4px; }
+.d3-plan.featured .d3-plan-price { background: linear-gradient(135deg, #b794ff, #7b35ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.d3-plan-per { font-size: 13px; color: rgba(232,240,255,0.35); margin-bottom: 28px; }
+.d3-plan-btn {
+  display: block; width: 100%; padding: 13px; border-radius: 100px; border: none;
+  font-size: 14px; font-weight: 700; cursor: pointer; margin-bottom: 28px;
+  background: rgba(255,255,255,0.07); color: rgba(232,240,255,0.8);
+}
+.d3-plan.featured .d3-plan-btn {
+  background: linear-gradient(135deg, #7b35ff, #4f8fff);
+  color: #fff; box-shadow: 0 0 25px rgba(123,53,255,0.4);
+}
+.d3-plan-feat { font-size: 13px; color: rgba(232,240,255,0.55); margin-bottom: 10px; display: flex; gap: 9px; align-items: flex-start; }
+.d3-plan-feat::before { content: '✦'; color: #ffd166; font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+
+/* ════════════════════════════════════════════════════════
+   DESIGN 4 – NATURE BOTANICAL (kept)
+════════════════════════════════════════════════════════ */
+#d4 {
+  min-height: 100vh;
+  background: #0d1a0e;
+  font-family: 'Nunito', sans-serif;
+  color: #e8f5e9;
+  padding-top: 56px;
+}
+.d4-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 60px; height: 70px;
+  border-bottom: 1px solid rgba(134,239,133,0.12);
+  position: sticky; top: 56px; z-index: 200;
+  background: rgba(13,26,14,0.95); backdrop-filter: blur(12px);
+}
+.d4-logo { font-size: 20px; font-weight: 800; color: #86ef85; }
+.d4-nav-links { display: flex; gap: 32px; }
+.d4-nav-links a { text-decoration: none; color: rgba(232,245,233,0.5); font-size: 14px; font-weight: 600; }
+.d4-cta { background: #86ef85; color: #0d1a0e; border: none; padding: 10px 22px; border-radius: 100px; font-size: 14px; font-weight: 800; cursor: pointer; }
+.d4-hero { padding: 80px 60px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+.d4-hero-text { flex: 1; }
+.d4-eyebrow { font-size: 12px; font-weight: 700; color: #86ef85; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; }
+.d4-h1 { font-size: 54px; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; }
+.d4-h1 em { font-style: normal; color: #86ef85; }
+.d4-p { color: rgba(232,245,233,0.55); font-size: 16px; line-height: 1.75; max-width: 380px; margin-bottom: 36px; }
+.d4-btns { display: flex; gap: 14px; }
+.d4-btn-p { background: #86ef85; color: #0d1a0e; border: none; padding: 14px 30px; border-radius: 100px; font-size: 15px; font-weight: 800; cursor: pointer; }
+.d4-btn-s { background: transparent; color: #86ef85; border: 2px solid rgba(134,239,133,0.25); padding: 14px 30px; border-radius: 100px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.d4-hero-right { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.d4-path-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(134,239,133,0.15); border-radius: 18px; padding: 22px; display: flex; align-items: center; gap: 18px; cursor: pointer; transition: background .2s; }
+.d4-path-card:hover { background: rgba(134,239,133,0.07); }
+.d4-path-icon { width: 50px; height: 50px; border-radius: 14px; background: rgba(134,239,133,0.1); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+.d4-path-info { flex: 1; }
+.d4-path-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.d4-path-meta { font-size: 12px; color: rgba(232,245,233,0.4); }
+.d4-pbar { height: 4px; background: rgba(255,255,255,0.07); border-radius: 2px; margin-top: 10px; }
+.d4-pfill { height: 100%; border-radius: 2px; background: #86ef85; }
+.d4-features { max-width: 1200px; margin: 0 auto 70px; padding: 0 60px; display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.d4-feat { background: rgba(255,255,255,0.03); border: 1px solid rgba(134,239,133,0.1); border-radius: 18px; padding: 30px; }
+.d4-feat-emo { font-size: 30px; margin-bottom: 14px; }
+.d4-feat-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.d4-feat-desc { font-size: 13px; color: rgba(232,245,233,0.45); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- TABS -->
+<nav class="tab-nav">
+  <button class="tab-btn t1 active" onclick="show('d1',this)">① Retro-Futurist (image exacte)</button>
+  <button class="tab-btn t2" onclick="show('d2',this)">② macOS Style (étendu)</button>
+  <button class="tab-btn t3" onclick="show('d3',this)">③ Cosmique / Galactique ★</button>
+  <button class="tab-btn t4" onclick="show('d4',this)">④ Nature / Botanique</button>
+</nav>
+
+<!-- ══════════════════════════════════
+     D1 — CODESTAR EXACT CLONE
+══════════════════════════════════ -->
+<section id="d1" class="design active">
+  <div class="d1-blob1"></div>
+  <div class="d1-blob2"></div>
+  <div class="d1-dotgrid"></div>
+
+  <nav class="d1-nav">
+    <div class="d1-logo-wrap">
+      <div class="d1-logo-hex">★</div>
+      <div class="d1-logo-text">Code<br>Star</div>
+    </div>
+    <div class="d1-nav-links">
+      <a href="#">Cours</a><a href="#">Mentorat</a><a href="#">Sandbox</a><a href="#">Tarifs</a>
+    </div>
+    <button class="d1-cta-btn">Connexion</button>
+  </nav>
+
+  <div class="d1-hero">
+    <div class="d1-hero-left">
+      <div class="d1-eyebrow">Plateforme nouvelle génération</div>
+      <h1 class="d1-h1">
+        <span class="w">MAÎTRISEZ<br>LE CODE</span><br>
+        <span class="o">NIVEAU EXPERT.</span>
+      </h1>
+      <p class="d1-desc">La plateforme d'apprentissage nouvelle génération. Exercices interactifs, correction par IA et mentorat humain, le tout dans une ambiance rétro-futuriste.</p>
+      <div class="d1-btns">
+        <button class="d1-btn-main">Commencer l'aventure &gt;</button>
+        <button class="d1-btn-sec">Voir les cours</button>
+      </div>
+    </div>
+    <div class="d1-hero-right">
+      <div class="d1-code-win">
+        <div class="d1-win-bar">
+          <div class="d1-win-dots">
+            <div class="d1-win-dot" style="background:#fc5c65"></div>
+            <div class="d1-win-dot" style="background:#fed330"></div>
+            <div class="d1-win-dot" style="background:#26de81"></div>
+          </div>
+          <span class="d1-win-label">main.js — CodeStar</span>
+        </div>
+        <div class="d1-code">
+<div><span class="kw">class</span> <span class="cls">Student</span> <span class="punc">{</span></div>
+<div>&nbsp;&nbsp;<span class="fn">constructor</span><span class="punc">(</span>name<span class="punc">) {</span></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="prop">this</span>.name <span class="punc">=</span> name<span class="punc">;</span></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="prop">this</span>.level <span class="punc">=</span> <span class="num">0</span><span class="punc">;</span></div>
+<div>&nbsp;&nbsp;<span class="punc">}</span></div>
+<div>&nbsp;&nbsp;<span class="cmt">// Prêt à passer au niveau supérieur ?</span></div>
+<div>&nbsp;&nbsp;<span class="fn">levelUp</span><span class="punc">() {</span></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="prop">this</span>.level<span class="punc">++;</span></div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">`🚀 <span style="color:#82aaff">${this.name}</span> est niveau <span style="color:#82aaff">${this.level}</span>!`</span><span class="punc">;</span></div>
+<div>&nbsp;&nbsp;<span class="punc">}</span></div>
+<div><span class="punc">}</span></div>
+<br>
+<div><span class="kw">const</span> you <span class="punc">=</span> <span class="kw">new</span> <span class="cls">Student</span><span class="punc">(</span><span class="str">"Dev"</span><span class="punc">);</span></div>
+<div><span class="fn">console</span>.log<span class="punc">(</span>you.levelUp<span class="punc">());</span></div>
+<div class="d1-output">▶ 🚀 Dev est niveau 1!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d1-stats-bar">
+    <div class="d1-stat"><div class="d1-stat-n">12k+</div><div class="d1-stat-l">Étudiants actifs</div></div>
+    <div class="d1-stat"><div class="d1-stat-n">48+</div><div class="d1-stat-l">Cours disponibles</div></div>
+    <div class="d1-stat"><div class="d1-stat-n">98%</div><div class="d1-stat-l">Taux de satisfaction</div></div>
+    <div class="d1-stat"><div class="d1-stat-n">4.9★</div><div class="d1-stat-l">Note moyenne</div></div>
+  </div>
+
+  <div class="d1-levels">
+    <div class="d1-level-head">Ton parcours de progression</div>
+    <div class="d1-level-grid">
+      <div class="d1-lcard active"><div class="d1-lnum">01</div><div class="d1-lname">Initiation</div><div class="d1-ldesc">Variables, boucles, fonctions. Pose les bases solides.</div></div>
+      <div class="d1-lcard"><div class="d1-lnum">02</div><div class="d1-lname">Développeur</div><div class="d1-ldesc">Structures de données, POO, premiers projets réels.</div></div>
+      <div class="d1-lcard"><div class="d1-lnum">03</div><div class="d1-lname">Architecte</div><div class="d1-ldesc">APIs, frameworks modernes, déploiement cloud.</div></div>
+      <div class="d1-lcard"><div class="d1-lnum">04</div><div class="d1-lname">Expert</div><div class="d1-ldesc">Performance, sécurité, open-source, leadership tech.</div></div>
+    </div>
+  </div>
+
+  <div class="d1-courses">
+    <div class="d1-courses-head">Cours disponibles</div>
+    <div class="d1-courses-grid">
+      <div class="d1-ccard">
+        <div class="d1-ccard-icon">🐍</div>
+        <div class="d1-ccard-title">Python Fondamentaux</div>
+        <div class="d1-ccard-desc">Le langage idéal pour commencer. Apprends en construisant de vrais projets.</div>
+        <div class="d1-ccard-bar"><div class="d1-ccard-fill" style="width:70%"></div></div>
+        <br><span class="d1-ccard-tag">Débutant · 8h</span>
+      </div>
+      <div class="d1-ccard">
+        <div class="d1-ccard-icon">🌐</div>
+        <div class="d1-ccard-title">HTML & CSS Maîtrisé</div>
+        <div class="d1-ccard-desc">De la première balise à des interfaces professionnelles et responsives.</div>
+        <div class="d1-ccard-bar"><div class="d1-ccard-fill" style="width:45%"></div></div>
+        <br><span class="d1-ccard-tag">Débutant · 6h</span>
+      </div>
+      <div class="d1-ccard">
+        <div class="d1-ccard-icon">⚡</div>
+        <div class="d1-ccard-title">JavaScript Interactif</div>
+        <div class="d1-ccard-desc">Rends le web vivant. DOM, événements, fetch API et projets concrets.</div>
+        <div class="d1-ccard-bar"><div class="d1-ccard-fill" style="width:20%"></div></div>
+        <br><span class="d1-ccard-tag">Intermédiaire · 12h</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="d1-mentors">
+    <div class="d1-mentors-head">Nos mentors experts</div>
+    <div class="d1-mentors-grid">
+      <div class="d1-mentor"><div class="d1-mentor-avatar">👨‍💻</div><div class="d1-mentor-name">Alexis Martin</div><div class="d1-mentor-role">Senior Dev · 8 ans exp.</div><div class="d1-mentor-stars">★★★★★</div></div>
+      <div class="d1-mentor"><div class="d1-mentor-avatar">👩‍💻</div><div class="d1-mentor-name">Sofia Chen</div><div class="d1-mentor-role">Full Stack · Ex-Google</div><div class="d1-mentor-stars">★★★★★</div></div>
+      <div class="d1-mentor"><div class="d1-mentor-avatar">🧑‍🏫</div><div class="d1-mentor-name">Youssef Ait</div><div class="d1-mentor-role">Data Engineer · 6 ans</div><div class="d1-mentor-stars">★★★★☆</div></div>
+      <div class="d1-mentor"><div class="d1-mentor-avatar">👩‍🎓</div><div class="d1-mentor-name">Léa Dubois</div><div class="d1-mentor-role">DevOps · Ex-Airbus</div><div class="d1-mentor-stars">★★★★★</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     D2 — macOS STYLE EXPANDED
+══════════════════════════════════ -->
+<section id="d2" class="design">
+  <div class="d2-menubar">
+    <span class="d2-menubar-logo">🍎</span>
+    <div class="d2-menubar-items">
+      <span>CodeLearn</span><span>Fichier</span><span>Affichage</span><span>Aide</span>
+    </div>
+    <div class="d2-menubar-right">
+      <span>📶 Wifi</span><span>🔋 98%</span><span>10:42</span>
+    </div>
+  </div>
+  <nav class="d2-nav">
+    <div class="d2-logo">CodeLearn</div>
+    <div class="d2-nav-links">
+      <a href="#">Cours</a><a href="#">Exercices</a><a href="#">Mentors</a><a href="#">Tarifs</a>
+    </div>
+    <div class="d2-nav-right">
+      <div class="d2-nav-search">🔍 Rechercher...</div>
+      <button class="d2-nav-cta">S'inscrire</button>
+    </div>
+  </nav>
+
+  <div class="d2-hero">
+    <div class="d2-hero-chip"><span class="live"></span> Nouveau · Correction par IA disponible</div>
+    <h1 class="d2-h1">Apprends à coder.<br><span>Simplement.</span></h1>
+    <p class="d2-hero-p">Une plateforme pensée pour les débutants, avec des cours clairs, des exercices guidés et un feedback instantané.</p>
+    <div class="d2-hero-btns">
+      <button class="d2-btn-p">Commencer gratuitement</button>
+      <button class="d2-btn-s">Voir comment ça marche</button>
+    </div>
+
+    <div class="d2-window">
+      <div class="d2-win-bar">
+        <div class="d2-win-dot r"></div><div class="d2-win-dot y"></div><div class="d2-win-dot g"></div>
+        <div class="d2-win-title">CodeLearn — Mon Espace d'apprentissage</div>
+      </div>
+      <div style="display:flex;border-bottom:1px solid rgba(0,0,0,0.07);">
+        <div class="d2-win-tab active">📚 Mes cours</div>
+        <div class="d2-win-tab">⚡ Exercices</div>
+        <div class="d2-win-tab">🏆 Classement</div>
+        <div class="d2-win-tab">💬 Forum</div>
+      </div>
+      <div class="d2-app">
+        <!-- Sidebar -->
+        <div class="d2-sidebar">
+          <div class="d2-sidebar-top">
+            <div class="d2-user-row">
+              <div class="d2-user-avatar">A</div>
+              <div class="d2-user-info">
+                <div class="d2-user-name">Alex Dupont</div>
+                <div class="d2-user-level">Niveau Débutant 🌱</div>
+              </div>
+            </div>
+          </div>
+          <div class="d2-sidebar-nav">
+            <div class="d2-nav-section">Apprentissage</div>
+            <div class="d2-nav-item active"><span class="ico">📚</span> Mes cours <span class="badge">4</span></div>
+            <div class="d2-nav-item"><span class="ico">⚡</span> Exercices du jour</div>
+            <div class="d2-nav-item"><span class="ico">🧪</span> Sandbox</div>
+            <div class="d2-nav-section">Social</div>
+            <div class="d2-nav-item"><span class="ico">🏆</span> Classement</div>
+            <div class="d2-nav-item"><span class="ico">💬</span> Forum <span class="badge" style="background:#ff3b30">3</span></div>
+            <div class="d2-nav-item"><span class="ico">🧑‍🏫</span> Mes mentors</div>
+            <div class="d2-nav-section">Compte</div>
+            <div class="d2-nav-item"><span class="ico">⚙️</span> Paramètres</div>
+          </div>
+        </div>
+        <!-- Main -->
+        <div class="d2-main">
+          <div class="d2-greeting">Bonjour Alex 👋</div>
+          <div class="d2-greeting-sub">Tu as un exercice qui t'attend aujourd'hui !</div>
+          <div class="d2-streak">
+            <div class="d2-streak-icon">🔥</div>
+            <div class="d2-streak-text">
+              <div class="d2-streak-title">Série en cours</div>
+              <div class="d2-streak-sub">Connecte-toi demain pour continuer</div>
+            </div>
+            <div class="d2-streak-num">14j</div>
+          </div>
+          <div class="d2-section-title">Continue ton apprentissage</div>
+          <div class="d2-course-row">
+            <div class="d2-ccard blue">
+              <div class="d2-ccard-icon">🐍</div>
+              <div class="d2-ccard-name">Python Débutant</div>
+              <div class="d2-ccard-meta">Leçon 7 sur 20 · 35%</div>
+              <div class="d2-pbar"><div class="d2-pfill" style="width:35%;background:#0071e3;"></div></div>
+            </div>
+            <div class="d2-ccard green">
+              <div class="d2-ccard-icon">🌐</div>
+              <div class="d2-ccard-name">HTML & CSS</div>
+              <div class="d2-ccard-meta">Leçon 12 sur 18 · 67%</div>
+              <div class="d2-pbar"><div class="d2-pfill" style="width:67%;background:#30d158;"></div></div>
+            </div>
+            <div class="d2-ccard orange">
+              <div class="d2-ccard-icon">⚡</div>
+              <div class="d2-ccard-name">JavaScript Bases</div>
+              <div class="d2-ccard-meta">Non commencé</div>
+              <div class="d2-pbar"><div class="d2-pfill" style="width:0%;background:#ff9f0a;"></div></div>
+            </div>
+            <div class="d2-ccard purple">
+              <div class="d2-ccard-icon">🧠</div>
+              <div class="d2-ccard-name">Algorithmique</div>
+              <div class="d2-ccard-meta">Leçon 2 sur 15 · 13%</div>
+              <div class="d2-pbar"><div class="d2-pfill" style="width:13%;background:#bf5af2;"></div></div>
+            </div>
+          </div>
+          <div class="d2-section-title">Prochains exercices recommandés</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="background:#f5f5f7;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(0,0,0,0.06);">
+              <span style="font-size:18px;">🎯</span>
+              <div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1d1d1f;">Boucles for en Python</div><div style="font-size:11px;color:rgba(29,29,31,0.45);">Exercice · 15 min estimé</div></div>
+              <span style="background:#0071e3;color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:980px;">Commencer</span>
+            </div>
+            <div style="background:#f5f5f7;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(0,0,0,0.06);">
+              <span style="font-size:18px;">📐</span>
+              <div style="flex:1"><div style="font-size:13px;font-weight:600;color:#1d1d1f;">Flexbox Challenge</div><div style="font-size:11px;color:rgba(29,29,31,0.45);">Exercice CSS · 20 min estimé</div></div>
+              <span style="background:#30d158;color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:980px;">Commencer</span>
+            </div>
+          </div>
+        </div>
+        <!-- Right panel -->
+        <div class="d2-panel">
+          <div class="d2-panel-title">Tes badges</div>
+          <div class="d2-achievement">
+            <div class="d2-ach-icon">🥇</div>
+            <div class="d2-ach-info"><div class="d2-ach-name">Premier code</div><div class="d2-ach-desc">Déverrouillé</div></div>
+          </div>
+          <div class="d2-achievement">
+            <div class="d2-ach-icon">🔥</div>
+            <div class="d2-ach-info"><div class="d2-ach-name">Série de 7j</div><div class="d2-ach-desc">Déverrouillé</div></div>
+          </div>
+          <div class="d2-achievement" style="opacity:0.4">
+            <div class="d2-ach-icon">💎</div>
+            <div class="d2-ach-info"><div class="d2-ach-name">Maître Python</div><div class="d2-ach-desc">Verrouillé</div></div>
+          </div>
+          <div class="d2-stats-mini">
+            <div style="border-top:1px solid rgba(0,0,0,0.06);margin:8px 0;"></div>
+            <div class="d2-stat-row"><span class="d2-stat-key">Exercices réussis</span><span class="d2-stat-val">48</span></div>
+            <div class="d2-stat-row"><span class="d2-stat-key">Points</span><span class="d2-stat-val">820 ⭐</span></div>
+            <div class="d2-stat-row"><span class="d2-stat-key">Rang</span><span class="d2-stat-val">#142 🏆</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="d2-stats-row">
+    <div class="d2-stat-card"><div class="d2-stat-ico">🔥</div><div class="d2-stat-n">14</div><div class="d2-stat-l">Jours consécutifs</div></div>
+    <div class="d2-stat-card"><div class="d2-stat-ico">✅</div><div class="d2-stat-n">48</div><div class="d2-stat-l">Exercices réussis</div></div>
+    <div class="d2-stat-card"><div class="d2-stat-ico">⭐</div><div class="d2-stat-n">820</div><div class="d2-stat-l">Points gagnés</div></div>
+    <div class="d2-stat-card"><div class="d2-stat-ico">🏅</div><div class="d2-stat-n">3</div><div class="d2-stat-l">Badges obtenus</div></div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="d2-reviews">
+    <h2 class="d2-reviews-title">Ce qu'ils en disent</h2>
+    <p class="d2-reviews-sub">Plus de 12 000 apprenants satisfaits</p>
+    <div class="d2-reviews-grid">
+      <div class="d2-review">
+        <div class="d2-review-stars">★★★★★</div>
+        <p class="d2-review-text">La meilleure plateforme pour apprendre à coder sans se sentir perdu. Les exercices sont parfaitement calibrés pour les débutants.</p>
+        <div class="d2-reviewer"><div class="d2-reviewer-avatar" style="background:#e8f0ff;">👩</div><div><div class="d2-reviewer-name">Marie L.</div><div class="d2-reviewer-meta">Reconversion pro · 3 mois</div></div></div>
+      </div>
+      <div class="d2-review">
+        <div class="d2-review-stars">★★★★★</div>
+        <p class="d2-review-text">La correction par IA est bluffante. Je comprends exactement pourquoi mon code ne fonctionne pas, en temps réel.</p>
+        <div class="d2-reviewer"><div class="d2-reviewer-avatar" style="background:#e8fff0;">👨</div><div><div class="d2-reviewer-name">Théo B.</div><div class="d2-reviewer-meta">Étudiant · 6 mois</div></div></div>
+      </div>
+      <div class="d2-review">
+        <div class="d2-review-stars">★★★★☆</div>
+        <p class="d2-review-text">J'ai essayé plusieurs plateformes, celle-ci est la seule où j'ai vraiment progressé. Le mentorat fait toute la différence.</p>
+        <div class="d2-reviewer"><div class="d2-reviewer-avatar" style="background:#fff4e8;">👩</div><div><div class="d2-reviewer-name">Inès K.</div><div class="d2-reviewer-meta">Freelance · 1 an</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="d2-pricing">
+    <h2 class="d2-pricing-title">Choisir un plan</h2>
+    <p class="d2-pricing-sub">Commence gratuitement, évolue à ton rythme</p>
+    <div class="d2-pricing-grid">
+      <div class="d2-plan">
+        <div class="d2-plan-name">Gratuit</div>
+        <div class="d2-plan-price">0€</div>
+        <div class="d2-plan-per">pour toujours</div>
+        <button class="d2-plan-btn">Commencer</button>
+        <div class="d2-plan-feat">5 cours d'introduction</div>
+        <div class="d2-plan-feat">Exercices basiques</div>
+        <div class="d2-plan-feat">Forum communautaire</div>
+      </div>
+      <div class="d2-plan featured">
+        <div class="d2-plan-name">⭐ Pro — Le plus populaire</div>
+        <div class="d2-plan-price">19€</div>
+        <div class="d2-plan-per">par mois · sans engagement</div>
+        <button class="d2-plan-btn">Commencer l'essai gratuit</button>
+        <div class="d2-plan-feat">Tous les cours en illimité</div>
+        <div class="d2-plan-feat">Correction IA avancée</div>
+        <div class="d2-plan-feat">2 sessions mentorat/mois</div>
+        <div class="d2-plan-feat">Certificats de complétion</div>
+      </div>
+      <div class="d2-plan">
+        <div class="d2-plan-name">Équipe</div>
+        <div class="d2-plan-price">49€</div>
+        <div class="d2-plan-per">par utilisateur/mois</div>
+        <button class="d2-plan-btn">Contacter l'équipe</button>
+        <div class="d2-plan-feat">Tout le plan Pro</div>
+        <div class="d2-plan-feat">Dashboard manager</div>
+        <div class="d2-plan-feat">Mentors dédiés</div>
+        <div class="d2-plan-feat">Support prioritaire</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     D3 — COSMIC / GALACTIC
+══════════════════════════════════ -->
+<section id="d3" class="design">
+  <div class="d3-stars"></div>
+  <div class="d3-stars-layer"></div>
+
+  <nav class="d3-nav">
+    <div class="d3-logo-wrap">
+      <div class="d3-logo-star"></div>
+      <div class="d3-logo-text">Code<span>Star</span></div>
+    </div>
+    <div class="d3-nav-links">
+      <a href="#">Cours</a><a href="#">Mentorat</a><a href="#">Sandbox</a><a href="#">Tarifs</a>
+    </div>
+    <button class="d3-cta">Rejoindre la galaxie →</button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="d3-hero">
+    <div class="d3-hero-left">
+      <div class="d3-planet-badge">Lancement — Accès anticipé ouvert</div>
+      <h1 class="d3-h1">
+        Deviens une<br>
+        <span class="glow-gold">étoile</span> du<br>
+        <span class="glow-purple">code.</span>
+      </h1>
+      <p class="d3-desc">La plateforme qui transforme les débutants en développeurs. Parcours guidés, IA intégrée, mentors humains — tout l'univers du code en un seul endroit.</p>
+      <div class="d3-btns">
+        <button class="d3-btn-main">✦ Commencer l'ascension</button>
+        <button class="d3-btn-sec">Explorer les cours</button>
+      </div>
+    </div>
+    <div class="d3-hero-right">
+      <div class="d3-orbit-card featured">
+        <div class="d3-orb-icon purple">🐍</div>
+        <div class="d3-orb-info">
+          <div class="d3-orb-title">Python – Planète Initiation</div>
+          <div class="d3-orb-meta">12 leçons · Débutant · 8h</div>
+        </div>
+        <span class="d3-orb-pill hot">🔥 Populaire</span>
+      </div>
+      <div class="d3-orbit-card">
+        <div class="d3-orb-icon gold">🌐</div>
+        <div class="d3-orb-info">
+          <div class="d3-orb-title">HTML & CSS – Orbite Visuelle</div>
+          <div class="d3-orb-meta">18 leçons · Débutant · 6h</div>
+        </div>
+        <span class="d3-orb-pill new">✦ Nouveau</span>
+      </div>
+      <div class="d3-orbit-card">
+        <div class="d3-orb-icon blue">⚡</div>
+        <div class="d3-orb-info">
+          <div class="d3-orb-title">JavaScript – Système Interactif</div>
+          <div class="d3-orb-meta">24 leçons · Intermédiaire · 12h</div>
+        </div>
+      </div>
+      <div class="d3-orbit-card">
+        <div class="d3-orb-icon gold" style="background:radial-gradient(circle,rgba(100,255,224,0.2),rgba(10,102,80,0.1));border-color:rgba(100,255,224,0.25)">🧠</div>
+        <div class="d3-orb-info">
+          <div class="d3-orb-title">Algorithmique – Nébuleuse Logique</div>
+          <div class="d3-orb-meta">20 leçons · Avancé · 10h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="d3-stats">
+    <div class="d3-stats-grid">
+      <div class="d3-stat-card"><div class="d3-stat-icon">🌟</div><div class="d3-stat-n">12k+</div><div class="d3-stat-l">Étoiles actives</div></div>
+      <div class="d3-stat-card"><div class="d3-stat-icon">🪐</div><div class="d3-stat-n">48+</div><div class="d3-stat-l">Cours disponibles</div></div>
+      <div class="d3-stat-card"><div class="d3-stat-icon">🚀</div><div class="d3-stat-n">98%</div><div class="d3-stat-l">Taux de satisfaction</div></div>
+      <div class="d3-stat-card"><div class="d3-stat-icon">✦</div><div class="d3-stat-n">4.9</div><div class="d3-stat-l">Note moyenne</div></div>
+    </div>
+  </div>
+
+  <!-- COURSES -->
+  <div class="d3-courses">
+    <div class="d3-section-label">Carte galactique des cours</div>
+    <div class="d3-courses-grid">
+      <div class="d3-ccard gold-hover">
+        <div class="d3-ccard-orb g">🐍</div>
+        <div class="d3-ccard-title">Python Fondamentaux</div>
+        <div class="d3-ccard-desc">Le point de départ de tout développeur. Variables, boucles, fonctions et logique de base.</div>
+        <div class="d3-ccard-footer"><span class="d3-ccard-level">Débutant</span><span class="d3-ccard-duration">8h · 12 leçons</span></div>
+      </div>
+      <div class="d3-ccard purple-hover">
+        <div class="d3-ccard-orb p">🌐</div>
+        <div class="d3-ccard-title">HTML & CSS Maîtrisé</div>
+        <div class="d3-ccard-desc">Construis des interfaces web visuelles. Du balisage sémantique au design responsive.</div>
+        <div class="d3-ccard-footer"><span class="d3-ccard-level">Débutant</span><span class="d3-ccard-duration">6h · 18 leçons</span></div>
+      </div>
+      <div class="d3-ccard blue-hover">
+        <div class="d3-ccard-orb b">⚡</div>
+        <div class="d3-ccard-title">JavaScript Interactif</div>
+        <div class="d3-ccard-desc">Anime le web. DOM, événements, fetch API et les bases du développement front-end moderne.</div>
+        <div class="d3-ccard-footer"><span class="d3-ccard-level">Intermédiaire</span><span class="d3-ccard-duration">12h · 24 leçons</span></div>
+      </div>
+      <div class="d3-ccard gold-hover">
+        <div class="d3-ccard-orb teal">🧠</div>
+        <div class="d3-ccard-title">Algorithmique</div>
+        <div class="d3-ccard-desc">Pense comme un vrai développeur. Tris, graphes, récursivité et complexité algorithmique.</div>
+        <div class="d3-ccard-footer"><span class="d3-ccard-level">Intermédiaire</span><span class="d3-ccard-duration">10h · 20 leçons</span></div>
+      </div>
+      <div class="d3-ccard purple-hover">
+        <div class="d3-ccard-orb pink">⚛️</div>
+        <div class="d3-ccard-title">React & Écosystème</div>
+        <div class="d3-ccard-desc">Maîtrise le framework le plus populaire. Props, hooks, state management et projets réels.</div>
+        <div class="d3-ccard-footer"><span class="d3-ccard-level">Avancé</span><span class="d3-ccard-duration">16h · 30 leçons</span></div>
+      </div>
+      <div class="d3-ccard blue-hover">
+        <div class="d3-ccard-orb r">🗄️</div>
+        <div class="d3-ccard-title">SQL & Bases de données</div>
+        <div class="d3-ccard-desc">Gère et interroge les données comme un pro. Requêtes, relations, index et optimisation.</div>
+        <div class="d3-ccard-footer"><span class="d3-ccard-level">Avancé</span><span class="d3-ccard-duration">9h · 18 leçons</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="d3-testimonials">
+    <div class="d3-section-label">Témoignages de la constellation</div>
+    <div class="d3-test-grid">
+      <div class="d3-test-card">
+        <div class="d3-test-stars">★★★★★</div>
+        <p class="d3-test-quote">CodeStar m'a donné le sentiment de vraiment progresser. L'ambiance galactique est motivante et les cours sont parfaitement calibrés pour les débutants.</p>
+        <div class="d3-test-author-row"><div class="d3-test-av" style="background:rgba(183,148,255,0.15)">👩</div><div><div class="d3-test-name">Marie L.</div><div class="d3-test-role">Reconversion · 3 mois</div></div></div>
+      </div>
+      <div class="d3-test-card">
+        <div class="d3-test-stars">★★★★★</div>
+        <p class="d3-test-quote">La correction par IA est bluffante. Je comprends exactement pourquoi mon code ne fonctionne pas, et je progresse deux fois plus vite qu'avant.</p>
+        <div class="d3-test-author-row"><div class="d3-test-av" style="background:rgba(255,209,102,0.15)">👨</div><div><div class="d3-test-name">Théo B.</div><div class="d3-test-role">Étudiant · 6 mois</div></div></div>
+      </div>
+      <div class="d3-test-card">
+        <div class="d3-test-stars">★★★★☆</div>
+        <p class="d3-test-quote">Le mentorat humain fait toute la différence. Mon mentor a débloqué en 30 min un problème que je cherchais depuis une semaine.</p>
+        <div class="d3-test-author-row"><div class="d3-test-av" style="background:rgba(100,180,255,0.15)">👩</div><div><div class="d3-test-name">Inès K.</div><div class="d3-test-role">Freelance · 1 an</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="d3-pricing">
+    <div class="d3-section-label">Choisir ton orbite</div>
+    <div class="d3-pricing-grid">
+      <div class="d3-plan">
+        <div class="d3-plan-name">☄️ Météorite — Gratuit</div>
+        <div class="d3-plan-price">0€</div>
+        <div class="d3-plan-per">pour toujours · sans carte</div>
+        <button class="d3-plan-btn">Commencer gratuitement</button>
+        <div class="d3-plan-feat">5 cours d'introduction</div>
+        <div class="d3-plan-feat">Exercices de base</div>
+        <div class="d3-plan-feat">Forum communautaire</div>
+      </div>
+      <div class="d3-plan featured">
+        <div class="d3-plan-name">★ Nova — Le plus populaire</div>
+        <div class="d3-plan-price">19€</div>
+        <div class="d3-plan-per">par mois · sans engagement</div>
+        <button class="d3-plan-btn">Commencer l'essai gratuit</button>
+        <div class="d3-plan-feat">Tous les cours en illimité</div>
+        <div class="d3-plan-feat">Correction IA avancée</div>
+        <div class="d3-plan-feat">2 sessions mentorat/mois</div>
+        <div class="d3-plan-feat">Certificats de complétion</div>
+      </div>
+      <div class="d3-plan">
+        <div class="d3-plan-name">🌌 Galaxie — Équipe</div>
+        <div class="d3-plan-price">49€</div>
+        <div class="d3-plan-per">par utilisateur/mois</div>
+        <button class="d3-plan-btn">Contacter l'équipe</button>
+        <div class="d3-plan-feat">Tout le plan Nova</div>
+        <div class="d3-plan-feat">Dashboard manager</div>
+        <div class="d3-plan-feat">Mentors dédiés</div>
+        <div class="d3-plan-feat">Support prioritaire 24/7</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     D4 — NATURE BOTANICAL
+══════════════════════════════════ -->
+<section id="d4" class="design">
+  <nav class="d4-nav">
+    <div class="d4-logo">🌿 GrowCode</div>
+    <div class="d4-nav-links">
+      <a href="#">Parcours</a><a href="#">Communauté</a><a href="#">Mentors</a><a href="#">Prix</a>
+    </div>
+    <button class="d4-cta">Planter une graine →</button>
+  </nav>
+  <div class="d4-hero">
+    <div class="d4-hero-text">
+      <div class="d4-eyebrow">🌱 Fais pousser tes compétences</div>
+      <h1 class="d4-h1">Apprends à coder,<br><em>naturellement.</em></h1>
+      <p class="d4-p">Comme une plante, ta progression se fait pas à pas. Des exercices courts, un feedback immédiat et une communauté bienveillante.</p>
+      <div class="d4-btns">
+        <button class="d4-btn-p">Commencer 🌿</button>
+        <button class="d4-btn-s">Explorer les parcours</button>
+      </div>
+    </div>
+    <div class="d4-hero-right">
+      <div class="d4-path-card"><div class="d4-path-icon">🐍</div><div class="d4-path-info"><div class="d4-path-title">Python – Les Racines</div><div class="d4-path-meta">12 leçons · Débutant</div><div class="d4-pbar"><div class="d4-pfill" style="width:70%"></div></div></div></div>
+      <div class="d4-path-card"><div class="d4-path-icon">🌐</div><div class="d4-path-info"><div class="d4-path-title">Web – La Tige</div><div class="d4-path-meta">18 leçons · Intermédiaire</div><div class="d4-pbar"><div class="d4-pfill" style="width:35%"></div></div></div></div>
+      <div class="d4-path-card"><div class="d4-path-icon">🧠</div><div class="d4-path-info"><div class="d4-path-title">Algorithmes – Les Branches</div><div class="d4-path-meta">24 leçons · Avancé</div><div class="d4-pbar"><div class="d4-pfill" style="width:10%"></div></div></div></div>
+    </div>
+  </div>
+  <div class="d4-features">
+    <div class="d4-feat"><div class="d4-feat-emo">🤖</div><div class="d4-feat-title">Correction par IA</div><div class="d4-feat-desc">Feedback personnalisé sur chaque exercice, en temps réel, 24h/24.</div></div>
+    <div class="d4-feat"><div class="d4-feat-emo">🧑‍🏫</div><div class="d4-feat-title">Mentorat humain</div><div class="d4-feat-desc">Sessions live avec des développeurs expérimentés pour débloquer tes blocages.</div></div>
+    <div class="d4-feat"><div class="d4-feat-emo">🌍</div><div class="d4-feat-title">Communauté active</div><div class="d4-feat-desc">12 000 apprenants dans une ambiance bienveillante et collaborative.</div></div>
+  </div>
+</section>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.design').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

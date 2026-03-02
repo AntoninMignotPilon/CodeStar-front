@@ -1,39 +1,44 @@
-import MacOSCodeBlock from "@/components/MacOSCodeBlock"
-import NavBar from "@/components/NavigationMenu"
+import Navbar from "@/components/layout/Navbar"
+import HeroSection from "@/components/home/HeroSection"
+import StatsSection from "@/components/home/StatsSection"
+import CourseCard from "@/components/home/CourseCard"
+import Footer from "@/components/layout/Footer"
+import { COURSES } from "@/data/courses"
 
 export default function HomePage() {
-
-  const pythonCode = `def fibonacci(n):
-    """
-    Calcule la suite de Fibonacci de manière récursive.
-    """
-    if n <= 1:
-        return n
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
-
-# Afficher les 10 premiers nombres
-results = [fibonacci(i) for i in range(10)]
-print(f"Séquence générée : {results}")`;
-
   return (
-    <div className="min-h-screen bg-white text-black flex flex-col justify-center items-center p-4">
-      <main className="max-w-2xl text-center space-y-6">
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Navbar />
 
-        <NavBar />
+      <main className="flex-1">
+        {/* Hero */}
+        <HeroSection />
 
-        <p className="text-5xl md:text-7xl font-black tracking-tighter">
-          Bienvenue sur CodeStar.
-        </p>
+        {/* Stats */}
+        <StatsSection />
 
-        <MacOSCodeBlock
-          code={pythonCode}
-          language="python"
-          filename="fibonacci.py"
-          allowCopy={true}    
-        />
-        
+        {/* Featured courses */}
+        <section className="px-4 py-16">
+          <div className="mx-auto max-w-5xl flex flex-col gap-8">
+            <div className="flex flex-col gap-2">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">
+                Featured Courses
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Structured paths to go from complete beginner to confident engineer.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {COURSES.map((course) => (
+                <CourseCard key={course.id} course={course} />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
+
+      <Footer />
     </div>
-  );
+  )
 }
