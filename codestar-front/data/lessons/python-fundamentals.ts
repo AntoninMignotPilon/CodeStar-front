@@ -1,9 +1,6 @@
 import type { Lesson } from "@/types/course"
 
 export const PYTHON_FUNDAMENTALS_LESSONS: Lesson[] = [
-  // -------------------------------------------------------------------------
-  // Lesson 1 — Variables & Types
-  // -------------------------------------------------------------------------
   {
     id: "variables-and-types",
     title: "Variables & Types",

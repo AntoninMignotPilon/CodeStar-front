@@ -1,0 +1,143 @@
+{
+  "common": {
+    "copyCode": "Copier le code",
+    "allCourses": "Tous les cours",
+    "lessons": "{count} leçons",
+    "percentComplete": "{progress}% terminé",
+    "duration": "{duration} min",
+    "durationRead": "{duration} min de lecture",
+    "terms": "CGU",
+    "privacyPolicy": "Politique de confidentialité",
+    "agreeLegal": "En continuant, vous acceptez nos",
+    "and": "et"
+  },
+
+  "nav": {
+    "courses": "Cours",
+    "algorithms": "Algorithmes",
+    "about": "À propos",
+    "login": "Connexion",
+    "getStarted": "Commencer",
+    "toggleTheme": "Changer le thème",
+    "switchLanguage": "Passer en {lang}"
+  },
+
+  "footer": {
+    "tagline": "L'éducation en informatique, simple et concrète.",
+    "platform": "Plateforme",
+    "account": "Compte",
+    "legal": "Légal",
+    "courses": "Cours",
+    "algorithms": "Algorithmes",
+    "about": "À propos",
+    "login": "Connexion",
+    "signup": "Inscription",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "copyright": "© {year} CodeStar. Tous droits réservés.",
+    "builtWith": "Fait avec",
+    "github": "GitHub",
+    "twitter": "Twitter"
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "Informatique · Rendue Simple",
+      "headline1": "Apprendre à ",
+      "headline2": "coder",
+      "headline3": ", penser, ",
+      "headline4": "créer",
+      "headline5": ".",
+      "subheadline": "CodeStar est une plateforme d'informatique pratique. De votre première variable aux systèmes distribués — apprenez à votre rythme, suivez votre progression et réalisez de vrais projets.",
+      "cta1": "Commencer gratuitement",
+      "cta2": "Parcourir les cours",
+      "badge1": "Sans carte bancaire",
+      "badge2": "12 000+ étudiants",
+      "badge3": "50+ cours"
+    },
+    "stats": {
+      "eyebrow": "En chiffres",
+      "students": "Étudiants actifs",
+      "courses": "Cours disponibles",
+      "certificates": "Certificats délivrés",
+      "completion": "Taux de complétion"
+    },
+    "featured": {
+      "eyebrow": "Parcours sélectionnés",
+      "title": "Cours à la une",
+      "subtitle": "Des parcours structurés pour passer de débutant complet à développeur confiant.",
+      "viewAll": "Voir tous les cours"
+    }
+  },
+
+  "auth": {
+    "login": {
+      "title": "Bon retour",
+      "noAccount": "Pas encore de compte ?",
+      "signupLink": "S'inscrire",
+      "apple": "Apple",
+      "google": "Google",
+      "divider": "ou continuer avec l'e-mail",
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "usernamePlaceholder": "votre-pseudo",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Se connecter",
+      "submitting": "Connexion…",
+      "errorFallback": "Échec de la connexion. Veuillez réessayer."
+    },
+    "signup": {
+      "title": "Créer votre compte",
+      "hasAccount": "Vous avez déjà un compte ?",
+      "loginLink": "Se connecter",
+      "apple": "Apple",
+      "google": "Google",
+      "divider": "ou continuer avec l'e-mail",
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "usernamePlaceholder": "votre-pseudo",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Créer le compte",
+      "submitting": "Création du compte…",
+      "errorFallback": "Échec de l'inscription. Veuillez réessayer."
+    }
+  },
+
+  "course": {
+    "lessonsLabel": "Leçons",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "difficulty": {
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé"
+    }
+  },
+
+  "courses": {
+    "pythonFundamentals": {
+      "title": "Les fondamentaux de Python",
+      "description": "Maîtrisez Python de zéro. Apprenez les variables, le flux de contrôle, les fonctions et la programmation orientée objet grâce à des exercices pratiques."
+    },
+    "algorithmsDataStructures": {
+      "title": "Algorithmes & Structures de données",
+      "description": "Plongez dans le tri, la recherche, les graphes et la programmation dynamique. Résolvez de vrais problèmes d'entretien étape par étape."
+    },
+    "webDevelopmentBasics": {
+      "title": "Bases du développement web",
+      "description": "Créez vos premières pages web avec HTML, CSS et JavaScript. Évoluez vers React et découvrez comment les interfaces modernes sont construites."
+    },
+    "introductionToDatabases": {
+      "title": "Introduction aux bases de données",
+      "description": "Comprenez les bases de données relationnelles, écrivez des requêtes SQL et explorez les alternatives NoSQL. Apprenez la conception de schémas et l'optimisation."
+    },
+    "networkingFundamentals": {
+      "title": "Fondamentaux des réseaux",
+      "description": "De HTTP à TCP/IP — comprenez comment les données transitent sur Internet et comment créer des applications réseau robustes."
+    },
+    "systemDesign": {
+      "title": "Conception de systèmes",
+      "description": "Apprenez à concevoir des systèmes distribués à grande échelle. Couvrez l'équilibrage de charge, le cache, les bases de données et l'architecture microservices."
+    }
+  }
+}

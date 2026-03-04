@@ -1,0 +1,143 @@
+{
+  "common": {
+    "copyCode": "Copy code",
+    "allCourses": "All courses",
+    "lessons": "{count} lessons",
+    "percentComplete": "{progress}% complete",
+    "duration": "{duration} min",
+    "durationRead": "{duration} min read",
+    "terms": "Terms",
+    "privacyPolicy": "Privacy Policy",
+    "agreeLegal": "By continuing, you agree to our",
+    "and": "and"
+  },
+
+  "nav": {
+    "courses": "Courses",
+    "algorithms": "Algorithms",
+    "about": "About",
+    "login": "Log in",
+    "getStarted": "Get started",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch to {lang}"
+  },
+
+  "footer": {
+    "tagline": "Computer science education, made simple and hands-on.",
+    "platform": "Platform",
+    "account": "Account",
+    "legal": "Legal",
+    "courses": "Courses",
+    "algorithms": "Algorithms",
+    "about": "About",
+    "login": "Log in",
+    "signup": "Sign up",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© {year} CodeStar. All rights reserved.",
+    "builtWith": "Built with",
+    "github": "GitHub",
+    "twitter": "Twitter"
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "Computer Science · Made Simple",
+      "headline1": "Learn to ",
+      "headline2": "code",
+      "headline3": ", think, ",
+      "headline4": "build",
+      "headline5": ".",
+      "subheadline": "CodeStar is a hands-on computer-science platform. From your first variable to distributed systems — learn at your own pace, track your progress, and ship real projects.",
+      "cta1": "Start learning for free",
+      "cta2": "Browse courses",
+      "badge1": "No credit card required",
+      "badge2": "12,000+ students",
+      "badge3": "50+ courses"
+    },
+    "stats": {
+      "eyebrow": "By the numbers",
+      "students": "Active students",
+      "courses": "Courses available",
+      "certificates": "Certificates issued",
+      "completion": "Completion rate"
+    },
+    "featured": {
+      "eyebrow": "Curated paths",
+      "title": "Featured Courses",
+      "subtitle": "Structured paths to go from complete beginner to confident engineer.",
+      "viewAll": "View all courses"
+    }
+  },
+
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up",
+      "apple": "Apple",
+      "google": "Google",
+      "divider": "or continue with email",
+      "username": "Username",
+      "password": "Password",
+      "usernamePlaceholder": "your-username",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Log in",
+      "submitting": "Logging in…",
+      "errorFallback": "Login failed. Please try again."
+    },
+    "signup": {
+      "title": "Create your account",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Log in",
+      "apple": "Apple",
+      "google": "Google",
+      "divider": "or continue with email",
+      "username": "Username",
+      "password": "Password",
+      "usernamePlaceholder": "your-username",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Create account",
+      "submitting": "Creating account…",
+      "errorFallback": "Signup failed. Please try again."
+    }
+  },
+
+  "course": {
+    "lessonsLabel": "Lessons",
+    "previous": "Previous",
+    "next": "Next",
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    }
+  },
+
+  "courses": {
+    "pythonFundamentals": {
+      "title": "Python Fundamentals",
+      "description": "Master Python from scratch. Learn variables, control flow, functions, and object-oriented programming through hands-on exercises."
+    },
+    "algorithmsDataStructures": {
+      "title": "Algorithms & Data Structures",
+      "description": "Deep-dive into sorting, searching, graphs, and dynamic programming. Solve real interview problems step by step."
+    },
+    "webDevelopmentBasics": {
+      "title": "Web Development Basics",
+      "description": "Build your first web pages with HTML, CSS, and JavaScript. Progress to React and learn how modern UIs are built."
+    },
+    "introductionToDatabases": {
+      "title": "Introduction to Databases",
+      "description": "Understand relational databases, write SQL queries, and explore NoSQL alternatives. Learn schema design and optimization."
+    },
+    "networkingFundamentals": {
+      "title": "Networking Fundamentals",
+      "description": "From HTTP to TCP/IP — understand how data travels across the internet and how to build robust networked applications."
+    },
+    "systemDesign": {
+      "title": "System Design",
+      "description": "Learn to design large-scale distributed systems. Cover load balancing, caching, databases, and microservices architecture."
+    }
+  }
+}

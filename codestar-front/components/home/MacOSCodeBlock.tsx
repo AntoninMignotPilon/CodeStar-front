@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { MacOSCodeBlockProps } from "@/types/props";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function MacOSCodeBlock({
   code,
@@ -13,6 +14,7 @@ export default function MacOSCodeBlock({
   allowCopy = false,
 }: MacOSCodeBlockProps) {
   const [isCopied, setIsCopied] = useState(false);
+  const { t } = useLanguage();
 
   const handleCopy = async () => {
     try {
@@ -44,7 +46,7 @@ export default function MacOSCodeBlock({
             <button
               onClick={handleCopy}
               className="text-gray-400 hover:text-white transition-colors focus:outline-none cursor-pointer"
-              title="Copy code"
+              title={t("common.copyCode")}
             >
               {isCopied ? (
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500"><polyline points="20 6 9 17 4 12"></polyline></svg>

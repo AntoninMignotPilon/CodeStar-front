@@ -1,10 +1,5 @@
 import type { Course } from "@/types/course"
 
-/**
- * Static course catalogue.
- * Each entry maps to a CourseCard on the homepage.
- * Add or remove entries here to update the grid — no other file needs touching.
- */
 export const COURSES: Course[] = [
   {
     id: "python-fundamentals",

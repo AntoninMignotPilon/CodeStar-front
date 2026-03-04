@@ -1,10 +1,10 @@
-// utilisé pour login et signup
+// used for login & signup
 export interface AccountCredentials {
   username: string;
   password: string;
 }
 
-// utilisé pour login et signup
+// used for login & signup
 export interface AuthResponse {
   token: string;
   message: string;

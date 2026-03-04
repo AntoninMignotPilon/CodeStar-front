@@ -1,12 +1,11 @@
 import { notFound } from "next/navigation"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 import { COURSES } from "@/data/courses"
 import { getLessons, getLesson } from "@/data/lessonRegistry"
 import Navbar from "@/components/layout/Navbar"
 import CourseSidebar from "@/components/course/CourseSidebar"
 import LessonContent from "@/components/course/LessonContent"
 import LessonNav from "@/components/course/LessonNav"
+import BackLink from "@/components/course/BackLink"
 
 interface Props {
   params: Promise<{ courseId: string; lessonId: string }>
@@ -43,13 +42,7 @@ export default async function LessonPage({ params }: Props) {
       {/* Page body */}
       <main className="flex-1 mx-auto w-full max-w-6xl px-4 py-10">
         {/* Back to all courses */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors mb-8"
-        >
-          <ArrowLeft className="size-3.5" strokeWidth={1.8} />
-          All courses
-        </Link>
+        <BackLink />
 
         {/* Course title */}
         <h1 className="text-sm font-semibold text-muted-foreground mb-6 uppercase tracking-widest">
